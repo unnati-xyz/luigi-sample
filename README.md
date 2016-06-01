@@ -14,13 +14,23 @@ Only package we need is luigi
 
 #### Each task is a unit of work. Tasks can be independant or can have dependancies
 
-* [Simple Hello World task](HelloWorldTask.py) - Simple example to show the structure of a Luigi task
-* [Task with dependecy](DependantTask.py) - Example to show how to add dependencies to current task
-* [Task with mock target](MockTargetTask.py) - *I really do not have an output, but still want some task dependency*
+* [Simple Hello World task](helloworld_task.py) - Simple example to show the structure of a Luigi task
+* [Task with dependecy](dependant_task.py) - Example to show how to add dependencies to current task
+* [Task with mock target](mock_target_task.py) - *I really do not have an output, but still want some task dependency*
 
-#### NOTE:
+##### Note:
 Every task mandatorily needs to have an output, else luigi does not know if the task is completed or not. It is more like a book keeping for Luigi to find out the status of the task.
 
 If you remove `output()` method from any of the dependant task, the dependant task will run infinitely. So make sure you have the output method specified and is used to write output in all tasks.
 
 ## Running the tasks
+To run any task, we follow the below command pattern
+
+```
+$ luigi --module mymodule MyTask --local-scheduler
+```
+
+**Example:**
+```
+$ luigi --module dependant_task DependantTask --local-scheduler
+```
