@@ -17,6 +17,7 @@ Only package we need is luigi
 * [Simple Hello World task](helloworld_task.py) - Simple example to show the structure of a Luigi task
 * [Task with dependecy](dependant_task.py) - Example to show how to add dependencies to current task
 * [Task with mock target](mock_target_task.py) - *I really do not have an output, but still want some task dependency*
+* [PySpark Task](pyspark_task.py) - Example pyspark task with JDBC connection
 
 ##### Note:
 Every task mandatorily needs to have an output, else luigi does not know if the task is completed or not. It is more like a book keeping for Luigi to find out the status of the task.
@@ -34,3 +35,11 @@ $ luigi --module mymodule MyTask --local-scheduler
 ```
 $ luigi --module dependant_task DependantTask --local-scheduler
 ```
+
+## Configuration
+
+Luigi looks for config files in:
+
+* `/etc/luigi/client.cfg`
+* `luigi.cfg` in the current working directory
+* `LUIGI_CONFIG_PATH` environment variable
