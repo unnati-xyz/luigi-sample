@@ -43,3 +43,21 @@ Luigi looks for config files in:
 * `/etc/luigi/client.cfg`
 * `luigi.cfg` in the current working directory
 * `LUIGI_CONFIG_PATH` environment variable
+
+Most important part of the configuration is setting up a spark job or a pyspark job. Luigi config has sections `[spark]` and `[pyspark]` to specify extra JARs and drivers required to run the spark job.
+
+## Central Scheduler
+
+The `--local-scheduler` param to run the luigi module must be used only during
+development. Once deployed, we need to use the central scheduler.
+
+Running the central scheduler:
+```
+$ luigid
+```
+When luigid starts up, it looks for the config file in previously mentioned locations.
+
+Running a luigi task with the central scheduler
+```
+$ luigi --module pyspark_task PySparkTableSchema
+```
