@@ -8,5 +8,5 @@ class HelloWorldTask(luigi.Task):
     def run(self):
         print("Hello World")
 
-        with output().open("w") as f:
-            f.writeline("Hello from luigi task")
+        with self.output().open("w") as f:
+            f.write("Hello from luigi task")
