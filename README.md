@@ -61,3 +61,9 @@ Running a luigi task with the central scheduler
 ```
 $ luigi --module pyspark_task PySparkTableSchema
 ```
+
+## Web Dashboard
+
+Luigi comes with a web dashboard for task history and statuses. The dashboard can
+be accessed via `http://localhost:8082` for local instance. The central server's
+dashboard can be accessed via `http://<central-scheduler-host>:8082`
