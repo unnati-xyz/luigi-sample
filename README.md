@@ -46,6 +46,8 @@ Luigi looks for config files in:
 
 Most important part of the configuration is setting up a spark job or a pyspark job. Luigi config has sections `[spark]` and `[pyspark]` to specify extra JARs and drivers required to run the spark job.
 
+[**Sample config**](luigi.cfg)
+
 ## Central Scheduler
 
 The `--local-scheduler` param to run the luigi module must be used only during
